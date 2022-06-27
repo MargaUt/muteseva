@@ -1,0 +1,120 @@
+111111111;test;test;test;test
+190032931;Aitvaras;Pašilaičių g. 10;Pašilaičių;Jotautas Godelaitis
+190019122;Atžalėlės;Antakalnio g. 74;Antakalnio;Vainys Piečaitis
+190020391;Aušrelė;Gerosios Vilties g. 28;Vilkpėdės;Dangiras Firantas
+303318623;Ąžuolas;Žirmūnų g. 32;Žirmūnų;Česys Norutis
+190020434;Bangelė;Žemaitės g. 3;Vilkpėdės;Salvijus Zalenkevičius
+190026120;Berželis;Taikos g. 187;Justiniškių;Hiacintas Skavaronskas
+190019275;Beržynėlis;Beržyno g. 7A;Naujamiesčio;Zbignius Jorentas
+190031797;Bitutė;Paberžės g. 20;Šeškinės;Prosperas Gryvauskas
+190021721;Boružėlė;Latvių g. 40;Žvėryno;Eimius Šoblinskas-Šablinskas
+190015444;Coliukė;A. Kojelavičiaus g. 298;Naujosios Vilnios;Algis Laurelis
+191727213;Daigelis;Dariaus ir Girėno g. 14;Naujininkų;Afanasijas Jasys
+190027037;Delfinukas;Vido Maciulevičiaus g. 32;Karoliniškių;Vydenė Vištortytė
+190018935;Drevinukas;K. Donelaičio g. 12;Naujamiesčio;Rolanda Beržiulioniūtė
+190017071;Drugelis;Rinktinės g. 28A;Šnipiškių;Sicilija Blumiūtė
+190014723;Du gaideliai;Pelesos g. 15;Naujininkų;Sanga Pecytė
+190019994;Eglutė;Miglos g. 3;Žvėryno;Amelia Šarkoviūtė
+190033271;Gabijėlė;Gabijos g. 1;Pašilaičių;Safia Lesanavičiūtė
+190033129;Gandriukas;Fabijoniškių g. 7;Fabijoniškių;Ivonė Staklevičaitė
+290031830;Gelvonėlis;Gelvonų g. 1;Šeškinės;Beata Trapšiūtė
+190012334;Gėlynas;Gėlių g. 9A;Senamiesčio;Lucija Kešenaitiūtė
+190012487;Geniukų kalvė;Muitinės g. 30;Naujamiesčio;Eleokadija Žeimaitė
+190013589;Gervelė;Dzūkų g. 32;Naujininkų;Rema Demisoviūtė
+302716948;Giliukas;Minties g. 1;Žirmūnų;Rima Šaltoniūtė
+190028324;Gilužis;Vydūno g. 11A;Pilaitės;Pranė Pakenytė
+190029383;Gintarėlis;Didlaukio g. 35;Verkių;Anastasia Opermaniūtė
+190025214;Giraitė;Erfurto g. 42;Lazdynų;Analija Recytė
+304028651;Gluosnis;Justiniškių g. 65;Viršuliškių;Mamerta Gložaitė
+190012715;Gudrutis;Trakų g. 12;Senamiesčio;Scholastika Pucelaitė
+190033467;Jovarėlis;S. Stanevičiaus g. 21;Fabijoniškių;Terezija Giteniūtė
+190029045;Jurginėlis;Justiniškių g. 47;Viršuliškių;Elma Gatavičaitė
+190016731;Justinukas;Taikos g. 99;Justiniškių;Magė Šliapakevičaitė
+190033652;Karuselė;Gedvydžių g. 25;Fabijoniškių;Tajisija Budrevičaitė
+190019841;Kaštonas;Antakalnio g. 108;Antakalnio;Afrosinija Jutkevičaitė
+190031459;Kodėlčiukas;Laisvės pr. 59;Šeškinės;Janina Šmeižaitė
+190015782;Krivūlė;Lydos g. 5;Senamiesčio;Samuela Salytė
+190013436;Kūlverstukas;Suvalkų g. 6;Naujamiesčio;Bernadeta Gribulytė
+190017114;Kurpaitė;Birželio 23-iosios g. 6A;Naujamiesčio;Apolinarija Saulytytė
+190023010;Lakštingala;Lakštingalų g. 10;Antakalnio;Filiontija Dadelaitė
+190017452;Lašelis;Dzūkų g. 29;Naujininkų;Ulija Petrašauskytė
+190018173;Lazdynėlis;Lazdynų g. 36;Lazdynų;Rasutė Kalniūtė
+290018740;Liepsnelė;Kapsų g. 7;Naujininkų;Grinija Čarneckiūtė
+190648777;Lokiuko giraitė;Kovo 11-osios g. 54;Grigiškių;Una Kombaraitė
+304111905;Malūnėlis;Popieriaus g. 7;Verkių;Tatjana Datenaitė
+190019318;Mažylis;A. Vivulskio g. 8A;Naujamiesčio;Aigustė Duršliokaitė
+190027375;Medynėlis;Algimanto Petro Kavoliuko g. 5;Karoliniškių;Aleksandra Gurgelaitytė
+190018554;Molinukas;Keramikų g. 34;Antakalnio;Malanija Kūnsevičytė
+190016012;Naminukas;Smėlio g. 13;Antakalnio;Gustė Baltaševičiūtė
+290015630;Nykštukas;Taikos g. 190;Justiniškių;Pergalė Karkliūtė
+190023882;Obelėlė;Architektų g. 204;Lazdynų;Svėtlana Folkaitė
+190031982;Ozas;Gelvonų g. 24;Šeškinės;Jane Žadaitė
+190021874;Pabiručiai;Brolių g. 18;Naujininkų;Dėlija Valkiūtė
+190013817;Pagrandukas;Mindaugo g. 15A;Naujamiesčio;Jotautas Godelaitis
+190023697;Pakalnutė;Architektų g. 44;Lazdynų;Vainys Piečaitis
+190016546;Panerių;Juodšilių g. 10;Panerių;Dangiras Firantas
+190030880;Papartis;Čiobiškio g. 17;Šeškinės;Česys Norutis
+190021917;Pasaka;Žirmūnų g. 110;Žirmūnų;Salvijus Zalenkevičius
+190022780;Pasakaitė;Taikos g. 30;Justiniškių;Hiacintas Skavaronskas
+190020249;Paslaptis;Darželio g. 7;Naujosios Vilnios;Zbignius Jorentas
+190030542;Pelėda;Musninkų g. 10;Šeškinės;Prosperas Gryva
+190648396;Pelėdžiukas;Lentvario g. 1A;Grigiškių;Eimius Šoblinskas-Šablinskas
+190022257;Pelenė;Justiniškių g. 84;Justiniškių;Algis Laurelis
+301879757;Pilaitukas;I. Kanto al. 7A;Pilaitės;Afanasijas Jasys
+190021493;Pipiras;Krokuvos g. 6A;Šnipiškių;Rolanda Beržiulionienė
+190028858;Prie pasakų parko;Loretos Asanavičiūtės g. 7;Visos seniūnijos;Sicilija Blumienė
+190011951;Pumpurėlis;Kalvarijų g. 186;Šnipiškių;Sanga Pecienė
+190029611;Puriena;Tujų g. 1;Viršuliškių;Amelia Šarkovienė
+190025890;Pušaitė;Bistryčios g. 3;Antakalnio;Safia Lesanavičienė
+190016884;Pušynėlis;Miglos g. 53;Žvėryno;Ivonė Staklevičaitienė
+190028662;Raktelis;Algimanto Petro Kavoliuko g. 12;Karoliniškių;Beata Trapšienė
+190021155;Ramunėlė;Žirmūnų g. 10;Žirmūnų;Lucija Kešenaitienė
+190013055;Rasa;M. Daukšos g. 15;Senamiesčio;Eleokadija Žeimaitė
+190013621;Riešutėlis;Erfurto g. 21;Lazdynų;Rema Demisovienė
+190648058;Rugelis;Kovo 11-osios g. 29A;Grigiškių;Rima Šaltonienė
+190020968;Rūta;Žirmūnų g. 50;Žirmūnų;Pranė Pakenienė
+190026316;Rytas;Architektų g. 162;Lazdynų;Anastasia Opermanienė
+190017986;Sadutė;Z. Sierakausko g. 28;Naujamiesčio;Analija Recienė
+190033314;Sakalėlis;S. Stanevičiaus g. 86;Fabijoniškių;Mamerta Gložaitienė
+190019460;Salvija;J. Jasinskio g. 17;Naujamiesčio;Scholastika Pucelaitienė
+190027560;Saulėgrąža;Taikos g. 31;Justiniškių;Terezija Gitenienė
+190014157;Saulėtekis;Genių g. 12;Naujosios Vilnios;Elma Gatavičaitienė
+290029950;Šermukšnėlė;Didlaukio g. 66;Verkių;Magė Šliapakevičaitienė
+290026840;Šilelis;Sietyno g. 5;Karoliniškių;Tajisija Budrevičaitienė
+190014680;Skroblinukas;Skroblų g. 13;Vilkpėdės;Afrosinija Jutkevičaitienė
+190025552;Smalsučiai;Minties g. 40;Žirmūnų;Janina Šmeižaitienė
+190017267;Šnekutis;Vytenio g. 41;Naujamiesčio;Samuela Salienė
+190011613;Spragtukas;Žirmūnų g. 108;Žirmūnų;Bernadeta Gribulienė
+190022595;Spygliukas;Architektų g. 16;Lazdynų;Apolinarija Saulytienė
+190028477;Strazdelis;Igno Šimulionio g. 14;Karoliniškių;Filiontija Dadelaitienė
+190030161;Sveikuolis;Dūkštų g. 14;Šeškinės;Ulija Petrašauskienė
+190019656;Švelnukas;Žalgirio g. 115;Šnipiškių;Rasutė Kalnienė
+190011766;Šypsena;Povilo Višinskio g. 23;Senamiesčio;Grinija Čarneckienė
+291326310;Trakų Vokės;Eduardo Andrė g. 6;Panerių;Una Kombaraitienė
+190022442;Užupiukas;Filaretų g. 19;Senamiesčio;Tatjana Datenaitienė
+190015978;Vaidilutė;Rinktinės g. 5B;Žirmūnų;Aigustė Duršliokaitienė
+190033990;Vandenis;P. Žadeikos g. 14A;Fabijoniškių;Aleksandra Gurgelaitienė
+190030019;Varpelis;Ukmergės g. 204;Šeškinės;Malanija Kūnsevičienė
+190032899;Vėjelis;Gabijos g. 21;Pašilaičių;Gustė Baltaševičienė
+190033848;Vėrinėlis;S. Stanevičiaus g. 68;Fabijoniškių;Pergalė Karklienė
+190028096;Vėtrungė;Gardino g. 8;Rasų;Svėtlana Folkaitienė
+190020815;Vieversys;Žirmūnų g. 89;Žirmūnų;Jane Žadaitienė
+190023544;Vilnelė;Pergalės g. 20;Naujosios Vilnios;Dėlija Valkienė
+190014538;Viltenė;Gerosios Vilties g. 7A;Vilkpėdės;Jotautas Godelaitis
+190012868;Voveraitė;Jūratės g. 4A;Antakalnio;Vainys Piečaitis
+190023359;Želmenėliai;Šaltkalvių g. 30;Naujininkų;Dangiras Firantas
+290011190;Žemuogėlė;Architektų g. 108;Lazdynų;Česys Norutis
+190032027;Žemyna;Žemynos g. 13;Pašilaičių;Salvijus Zalenkevičius
+290028510;Žiburėlis;Laisvės pr. 46;Karoliniškių;Hiacintas Skavaronskas
+290023730;Žibutė;Architektų g. 62;Lazdynų;Zbignius Jorentas
+190032212;Žiedas;Žemynos g. 41;Pašilaičių;Prosperas Gryva
+190015825;Žilvinėlio;Taikos g. 130;Justiniškių;Eimius Šoblinskas-Šablinskas
+190022823;Žilvitis;Viršuliškių g. 9;Viršuliškių;Algis Laurelis
+190013774;Žiogelis;J. Kolaso g. 15;Naujosios Vilnios;Afanasijas Jasys
+290020620;Žirmūnėliai;Žirmūnų g. 13;Žirmūnų;Jotautas Godelaitis
+190018892;Žirniukas;Verkių g. 17;Žirmūnų;Vainys Piečaitis
+304221230;Žolynas;Žolyno g. 45A;Antakalnio;Dangiras Firantas
+190023163;Žolynėlis;Žolyno g. 44;Antakalnio;Česys Norutis
+190017648;Žuvėdra;Parko g. 8A;Naujosios Vilnios;Salvijus Zalenkevičius
+190017833;Žvangutis;Rinktinės g. 38A;Šnipiškių;Hiacintas Skavaronskas
+190029198;Zylutė;Justiniškių g. 45;Viršuliškių;Zbignius Jorentas
