@@ -1,6 +1,6 @@
 # Kaip naudotis programa
 
-#### Technologies used: 
+#### Naudotos technologijos: 
 - React 17.0.2,  Boostrap 5.1.3
 - Spring Boot 2.6.3, Java 11
 - Spring security
@@ -8,7 +8,7 @@
 - Apache Tomcat 9.0.58 server
 - Swagger-UI, Maven
 
-## Getting Started
+## Kaip pradėti:
 
 - Clone the repository `git clone https://github.com/MargaUt/muteseva.git`
 
