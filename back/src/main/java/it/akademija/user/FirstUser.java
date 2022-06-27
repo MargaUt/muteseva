@@ -34,12 +34,8 @@ public class FirstUser {
 			UserDTO firstUser = new UserDTO("USER", "user", "user", "12345678987", "Address 1", "+37061398876",
 					"user@user.lt", "user@user.lt", "user@user.lt");
 
-			UserDTO firstManager = new UserDTO("MANAGER", "manager", "manager", "manager@manager.lt",
-					"manager@manager.lt", "manager@manager.lt");
-
 			userService.createUser(firstAdmin);
 			userService.createUser(firstUser);
-			userService.createUser(firstManager);
 
 		}
 

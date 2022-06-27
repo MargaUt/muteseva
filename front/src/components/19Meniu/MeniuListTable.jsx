@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NotFoundMessage from '../08CommonComponents/NotFoundMessage';
+import AuthContext from "../11Context/AuthContext";
 
 import '../../App.css';
 class MeniuListTable extends Component {
@@ -22,6 +23,7 @@ class MeniuListTable extends Component {
             )
         }else{
         return (
+            <AuthContext.Consumer>{(authContext) =>
             <div className="table-responsive-md">
 
                 <table className="table" >
@@ -29,8 +31,13 @@ class MeniuListTable extends Component {
                     <thead className="no-top-border">
                         <tr >
                             <th>Meniu pavadinimas</th>
+                            {authContext.state.role === 'ADMIN' &&
                             <th>Redaguoti duomenis</th>
+                            }
+                            <th>Peržiūrėti patiekalus</th>
+                            {authContext.state.role === 'ADMIN' &&
                             <th className="deleteColumn">Ištrinti meniu</th>
+                            }
                         </tr>
                     </thead>
                     <tbody >
@@ -69,7 +76,7 @@ class MeniuListTable extends Component {
                                         ) : (
                                             <React.Fragment>
                                                 <td>{meniu.meniuName}</td>
-                                               
+                                                {authContext.state.role === 'ADMIN' &&
                                                 <td>
                                                     <button
                                                         className="btn btn-outline-primary btn-sm btn-block"
@@ -78,6 +85,7 @@ class MeniuListTable extends Component {
                                                         Redaguoti
                                                     </button>
                                                 </td>
+                                                }
                                             </React.Fragment>
                                         )}
 
@@ -89,6 +97,7 @@ class MeniuListTable extends Component {
                                             Peržiūrėti patiekalus
                                             </button>
                                     </td>
+                                    {authContext.state.role === 'ADMIN' &&
                                     <td>
                                         <button
                                             onClick={() => onDelete(meniu)}
@@ -97,6 +106,7 @@ class MeniuListTable extends Component {
                                             Ištrinti
                                             </button>
                                     </td>
+                                    }
                                 </tr>
                             ))
                         }
@@ -104,6 +114,8 @@ class MeniuListTable extends Component {
                 </table>
             </div>
 
+            }
+            </AuthContext.Consumer>
         );
     }
 }

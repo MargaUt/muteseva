@@ -39,7 +39,7 @@ public class MeniuDTO {
 	/**
 	 * Create MealDTO from Meal
 	 *
-	 * @param Meniu
+	 * @param Uzsakymas
 	 * @return
 	 */
 

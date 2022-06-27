@@ -47,7 +47,9 @@ public class MaitinimoIstaigaService {
 	@Transactional
 	public void createNewIstaiga(MaitinimoIstaigaDTO maitinimoIstaiga) {
 
-		maitinimoIstaigaDAO.save(new MaitinimoIstaiga( maitinimoIstaiga.getId(), maitinimoIstaiga.getKodas(), maitinimoIstaiga.getPavadinimas(),
+		maitinimoIstaigaDAO.save(new MaitinimoIstaiga( 
+				//maitinimoIstaiga.getId(), 
+				maitinimoIstaiga.getKodas(), maitinimoIstaiga.getPavadinimas(),
 				maitinimoIstaiga.getAddress()));
 
 	}

@@ -21,9 +21,11 @@ public class MaitinimoIstaigaDTO {
 
 	}
 
-	public MaitinimoIstaigaDTO(String id, String kodas, String address, String pavadinimas) {
+	public MaitinimoIstaigaDTO(
+			//String id,
+			String kodas, String address, String pavadinimas) {
 		super();
-		this.id = id;
+		//this.id = id;
 		this.kodas = kodas;
 		this.address = address;
 		this.pavadinimas = pavadinimas;

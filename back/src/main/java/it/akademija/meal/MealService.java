@@ -69,7 +69,9 @@ public class MealService {
 	@Transactional
 	public void createNewMeal(MealDTO mealDto) {
 		var meniu = meniuDao.findById(mealDto.getMeniuId()).get();
-		mealDao.save(new Meal(mealDto.getId(), mealDto.getName(), mealDto.getDescription(), meniu));
+		mealDao.save(new Meal(
+				//mealDto.getId(),
+				mealDto.getName(), mealDto.getDescription(), meniu));
 
 	}
 

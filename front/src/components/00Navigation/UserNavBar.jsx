@@ -11,7 +11,7 @@ function Navigation(props) {
 
     return (
         <div className="pb-4" >
-            <nav className="navbar navbar-expand-lg py-4 navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg py-4 bg-primary">
               {/* Renamed .ml-* and .mr-* to .ms-* and .me-*. */}
                 <div className="container">
 
@@ -24,7 +24,7 @@ function Navigation(props) {
                         <ul className="navbar-nav ms-auto ">
 
                         <li className="nav-item me-1">
-                                <NavLink className="nav-link" id="navAdminIstaguList" to={"/istaigos"}>Maitinimo Įstaigos</NavLink>
+                                <NavLink style={{color: 'white', textDecoration: 'none'}} className="nav-link" id="navAdminIstaguList" to={"/istaigos"}>Maitinimo Įstaigos</NavLink>
                             </li>
 
                             <li className="nav-item nav-item me-2">

@@ -3,12 +3,16 @@ package it.akademija.meal;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import it.akademija.meniu.Meniu;
+import it.akademija.uzsakymas.Uzsakymas;
 
 @Entity
 public class Meal {
@@ -17,6 +21,8 @@ public class Meal {
 	@Column(name = "meal_id")
 	// @Pattern(regexp = "^(?!\\s*$)[0-9\\s]{9}$|", message = "Įstaigos kodas turi
 	// būti sudarytas iš 9 skaitmenų")
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
 
 	@Column(name = "name", unique = false)
@@ -26,21 +32,21 @@ public class Meal {
 	@NotBlank(message = "Aprašymas privalomas")
 	@Column(name = "description", unique = false)
 	private String description;
-	
-	@ManyToOne(cascade = { CascadeType.MERGE,
-			CascadeType.DETACH })
+
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.DETACH })
 	@JoinColumn(name = "meniu_id")
 	private Meniu meniu;
-	
 
 	public Meal() {
 
 	}
 
-	public Meal(String id, @NotBlank(message = "Patiekalo pavadinimas privalomas") String name,
+	public Meal(
+			// String id,
+			@NotBlank(message = "Patiekalo pavadinimas privalomas") String name,
 			@NotBlank(message = "Aprašymas privalomas") String description, Meniu meniu) {
 		super();
-		this.id = id;
+		// this.id = id;
 		this.name = name;
 		this.description = description;
 		this.meniu = meniu;

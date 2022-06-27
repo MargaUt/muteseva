@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import swal from 'sweetalert';
 import { withRouter } from 'react-router-dom';
 
-
 import http from '../10Services/httpService';
 import apiEndpoint from '../10Services/endpoint';
 import '../../App.css';
@@ -11,6 +10,8 @@ import IstaiguListTable from './IstaiguListTable';
 import Pagination from '../08CommonComponents/Pagination';
 import SearchBox from '../08CommonComponents/SeachBox';
 export class IstaiguListContainer extends Component {
+
+
 
     constructor(props, context) {
         super(props, context);
@@ -116,7 +117,8 @@ export class IstaiguListContainer extends Component {
 
 
     handleView = (item) => {
-            const id = item.id;
+            const id = item.id
+            ;
             this.props.history.push("/meniu/" + id);
             
            
@@ -191,7 +193,7 @@ export class IstaiguListContainer extends Component {
 
         const placeholder = "Ieškoti pagal pavadinimą...";
 
-        const { istaigos, totalElements, pageSize, searchQuery, inEditMode, editRowId, errorMessages } = this.state;
+        const { istaigos, totalElements, pageSize, searchQuery, inEditMode, editRowId, errorMessages, currentUser } = this.state;
 
         const hasErrors = Object.keys(errorMessages).length === 0 ? false : true;
 
@@ -217,6 +219,7 @@ export class IstaiguListContainer extends Component {
                     onChange={this.handleChange}
                     onSave={this.handleSaveEdited}
                     search={searchQuery}
+                    currentUser={currentUser}
                 />
 
                 <Pagination

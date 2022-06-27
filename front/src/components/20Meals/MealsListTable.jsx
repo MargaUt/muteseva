@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NotFoundMessage from '../08CommonComponents/NotFoundMessage';
+import AuthContext from "../11Context/AuthContext";
 
 import '../../App.css';
 class MealsListTable extends Component {
@@ -21,6 +22,7 @@ class MealsListTable extends Component {
             )
         }else{
         return (
+            <AuthContext.Consumer>{(authContext) =>
             <div className="table-responsive-md">
 
                 <table className="table" >
@@ -29,8 +31,12 @@ class MealsListTable extends Component {
                         <tr >
                             <th>Patiekalo pavadinimas</th>
                             <th>Patiekalo aprašymas</th>
+                            {authContext.state.role === 'ADMIN' &&
                             <th>Redaguoti duomenis</th>
+                            }
+                            {authContext.state.role === 'ADMIN' &&
                             <th className="deleteColumn">Ištrinti patiekalą</th>
+                            }
                         </tr>
                     </thead>
                     <tbody >
@@ -84,6 +90,7 @@ class MealsListTable extends Component {
                                                 <td>{meal.name}</td>
                                                 <td>{meal.description}</td>
                                                
+                                                {authContext.state.role === 'ADMIN' &&
                                                 <td>
                                                     <button
                                                         className="btn btn-outline-primary btn-sm btn-block"
@@ -92,10 +99,11 @@ class MealsListTable extends Component {
                                                         Redaguoti
                                                     </button>
                                                 </td>
+                                                }
                                             </React.Fragment>
                                         )}
 
-                                    
+                                    {authContext.state.role === 'ADMIN' &&
                                     <td>
                                         <button
                                             onClick={() => onDelete(meal)}
@@ -104,12 +112,15 @@ class MealsListTable extends Component {
                                             Ištrinti
                                             </button>
                                     </td>
+                                    }
                                 </tr>
                             ))
                         }
                     </tbody>
                 </table>
             </div>
+            }
+            </AuthContext.Consumer>
 
         );
     }

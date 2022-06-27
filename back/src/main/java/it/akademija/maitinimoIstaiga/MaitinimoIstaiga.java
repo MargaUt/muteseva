@@ -7,11 +7,12 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import it.akademija.meniu.Meniu;
 
@@ -26,6 +27,9 @@ public class MaitinimoIstaiga {
 	@Column(name = "maitinimoIstaigos_id")
 	// @Pattern(regexp = "^(?!\\s*$)[0-9\\s]{9}$|", message = "Įstaigos kodas turi
 	// būti sudarytas iš 9 skaitmenų")
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
 
 	@Column(name = "kodas", unique = true)
@@ -58,50 +62,52 @@ public class MaitinimoIstaiga {
 		this.address = address;
 	}
 
-	public MaitinimoIstaiga(String id, @NotBlank(message = "Maitinimo įstaigos kodas privalomas") String kodas,
-			@NotBlank(message = "Pavadinimas privalomas") @Pattern(regexp = "\\S[\\s\\S]{2,49}") String pavadinimas,
-			@NotBlank(message = "Adresas privalomas") String address, Set<Meniu> istaigosMeniu) {
-		super();
-		this.id = id;
-		this.kodas = kodas;
-		this.pavadinimas = pavadinimas;
-		this.address = address;
-		this.istaigosMeniu = istaigosMeniu;
-	}
+//	public MaitinimoIstaiga(
+//			//String id,
+//			@NotBlank(message = "Maitinimo įstaigos kodas privalomas") String kodas,
+//			@NotBlank(message = "Pavadinimas privalomas") @Pattern(regexp = "\\S[\\s\\S]{2,49}") String pavadinimas,
+//			@NotBlank(message = "Adresas privalomas") String address, Set<Meniu> istaigosMeniu) {
+//		super();
+//		//this.id = id;
+//		this.kodas = kodas;
+//		this.pavadinimas = pavadinimas;
+//		this.address = address;
+//		this.istaigosMeniu = istaigosMeniu;
+//	}
 	
-	public MaitinimoIstaiga(String id, @NotBlank(message = "Maitinimo įstaigos kodas privalomas") String kodas,
-			@NotBlank(message = "Pavadinimas privalomas") @Pattern(regexp = "\\S[\\s\\S]{2,49}") String pavadinimas,
-			@NotBlank(message = "Adresas privalomas") String address
-			//Set<Meniu> istaigosMeniu
-			) {
-		super();
-		this.id = id;
-		this.kodas = kodas;
-		this.pavadinimas = pavadinimas;
-		this.address = address;
-		//this.istaigosMeniu = istaigosMeniu;
-	}
+//	public MaitinimoIstaiga(String id, @NotBlank(message = "Maitinimo įstaigos kodas privalomas") String kodas,
+//			@NotBlank(message = "Pavadinimas privalomas") @Pattern(regexp = "\\S[\\s\\S]{2,49}") String pavadinimas,
+//			@NotBlank(message = "Adresas privalomas") String address
+//			//Set<Meniu> istaigosMeniu
+//			) {
+//		super();
+//		this.id = id;
+//		this.kodas = kodas;
+//		this.pavadinimas = pavadinimas;
+//		this.address = address;
+//		//this.istaigosMeniu = istaigosMeniu;
+//	}
 
-
-	public MaitinimoIstaiga(
-			@NotBlank(message = "Maitinimo įstaigos kodas privalomas") String kodas,
-			@NotBlank(message = "Pavadinimas privalomas") @Pattern(regexp = "\\S[\\s\\S]{2,49}") String pavadinimas,
-			@NotBlank(message = "Adresas privalomas") String address, Set<Meniu> istaigosMeniu) {
-		super();
-		this.kodas = kodas;
-		this.pavadinimas = pavadinimas;
-		this.address = address;
-		this.istaigosMeniu = istaigosMeniu;
-	}
+//
+//	public MaitinimoIstaiga(
+//			@NotBlank(message = "Maitinimo įstaigos kodas privalomas") String kodas,
+//			@NotBlank(message = "Pavadinimas privalomas") @Pattern(regexp = "\\S[\\s\\S]{2,49}") String pavadinimas,
+//			@NotBlank(message = "Adresas privalomas") String address, Set<Meniu> istaigosMeniu) {
+//		super();
+//		this.kodas = kodas;
+//		this.pavadinimas = pavadinimas;
+//		this.address = address;
+//		this.istaigosMeniu = istaigosMeniu;
+//	}
 
 
 	public String getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
+//	public void setId(String id) {
+//		this.id = id;
+//	}
 
 	public String getAddress() {
 		return address;

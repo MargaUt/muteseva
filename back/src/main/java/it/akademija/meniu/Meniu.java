@@ -7,11 +7,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import it.akademija.maitinimoIstaiga.MaitinimoIstaiga;
 import it.akademija.meal.Meal;
@@ -21,6 +24,8 @@ public class Meniu {
 
 	@Id
 	@Column(name = "meniu_id")
+	@GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
 
 	@Column(name = "name", unique = false)
@@ -43,10 +48,12 @@ public class Meniu {
 
 	}
 
-	public Meniu(String id, @NotBlank(message = "Patiekalo pavadinimas privalomas") String meniuName, 
+	public Meniu(
+			//String id, 
+			@NotBlank(message = "Patiekalo pavadinimas privalomas") String meniuName, 
 			MaitinimoIstaiga maitinimoIstaiga) {
 		super();
-		this.id = id;
+		//this.id = id;
 		this.meniuName = meniuName;
 		this.maitinimoIstaiga = maitinimoIstaiga;
 	}

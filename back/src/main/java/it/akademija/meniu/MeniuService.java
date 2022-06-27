@@ -76,7 +76,9 @@ public class MeniuService {
 
 		var istaiga = istaigosDao.findById(meniu.getIstaigosid()).get();
 		
-		meniuDAO.save(new Meniu(meniu.getId(), meniu.getMeniuName(), istaiga));
+		meniuDAO.save(new Meniu(
+				//meniu.getId(), 
+				meniu.getMeniuName(), istaiga));
 
 	}
 

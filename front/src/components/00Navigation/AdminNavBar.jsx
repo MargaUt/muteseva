@@ -8,7 +8,7 @@ import LogoutContainer from './LogoutContainer';
 function Navigation(props) {
     return (
         <div className="pb-8" >
-            <nav className="navbar-expand-lg py-3 navbar navbar-dark bg-primary">
+            <nav className="navbar-expand-lg py-3 navbar bg-success">
 
                 <div className="container">
 
@@ -21,12 +21,16 @@ function Navigation(props) {
                         <ul className="navbar-nav ms-auto ">
                     {/* Renamed .ml-* and .mr-* to .ms-* and .me-*. */}
 
+
                             <li className="nav-item me-2">
-                                <NavLink className="nav-link" id="navAdminIstaguList" to={"/istaigos"}>Maitinimo Įstaigos</NavLink>
+                                <NavLink style={{color: 'white', textDecoration: 'none'}}  className="nav-link" id="navAdminUserList" to={"/admin"}>Naudotojai</NavLink>
+                            </li>
+                            <li className="nav-item me-2">
+                                <NavLink style={{color: 'white', textDecoration: 'none'}}  className="nav-link" id="navAdminIstaguList" to={"/istaigos"}>Maitinimo Įstaigos</NavLink>
                             </li>
 
 
-                            <li className="nav-item nav-item me-2">
+                            <li className="nav-item navbar-light nav-item me-2">
                                 <LogoutContainer />
                             </li>
 

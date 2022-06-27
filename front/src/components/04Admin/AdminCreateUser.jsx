@@ -37,8 +37,7 @@ class AdminCreateUser extends Component {
                     className="form-label">Naudotojo rolė:</label>
                     <select name="role-selector" id="selRole" className="form-select" value={this.state.role} onChange={this.roleDropdownOnChange}>
                         <option value="ADMIN">Administratorius</option>
-                        <option value="MANAGER">Švietimo specialistas</option>
-                        <option value="USER">Vaiko atstovas</option>
+                        <option value="USER">Vartotojas</option>
                     </select>
                 </div>
                 <div className="form-group ">
@@ -62,7 +61,7 @@ class AdminCreateUser extends Component {
     }
 
     drawForm(role) {
-        if (role === "ADMIN" || role === "MANAGER") {
+        if (role === "ADMIN") {
             return (
                 <div className="form">
                     <div className="mb-3">
@@ -133,60 +132,6 @@ class AdminCreateUser extends Component {
                                 placeholder="Pavardė"
                                 required
                                 pattern="[A-zÀ-ž]{2,32}"
-                            />
-                        </div>
-                    </div>
-                    <div className="form">                       
-                        <div className="mb-3">
-                            <label htmlFor="txtIdentificationCode">Asmens kodas <span className="fieldRequired">*</span></label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="txtPersonalCode"
-                                name="personalCode"
-                                value={this.state.personalCode}
-                                onChange={this.handleChange}
-                                onInvalid={(e) => inputValidator(e)}
-                                placeholder="Asmens kodas"
-                                required
-                                pattern="[0-9]{11}"
-                            />
-                        </div>
-                    </div>
-                    <div className="form">
-                        <div className="mb-3">
-                            <label htmlFor="txtTelNo">Telefonas <span className="fieldRequired">*</span></label>
-                            <div className="input-group">
-                               
-                                <input
-                                    type="tel"
-                                    className="form-control"
-                                    id="txtTelNo"
-                                    name="phone"
-                                    value={this.state.phone}
-                                    onChange={this.handleChange}
-                                    onInvalid={(e) => inputValidator(e)}
-                                    placeholder="+37012345678"
-                                    required pattern="[+]{1}[0-9]{4,19}">
-                                </input>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="form">
-                        <div className="mb-3">
-                            <label htmlFor="txtAddress"
-                             className="form-label">Adresas <span className="fieldRequired">*</span></label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="txtAddress"
-                                name="address"
-                                value={this.state.address}
-                                onChange={this.handleChange}
-                                onInvalid={(e) => inputValidator(e)}
-                                placeholder="Adresas"
-                                required
                             />
                         </div>
                     </div>

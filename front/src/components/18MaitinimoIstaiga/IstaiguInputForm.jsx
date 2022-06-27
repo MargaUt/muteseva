@@ -4,6 +4,7 @@ import "../../App.css";
 import http from "../10Services/httpService";
 import apiEndpoint from "../10Services/endpoint";
 import swal from "sweetalert";
+import AuthContext from "../11Context/AuthContext";
 
 function IstaiguInputForm() {
   const initIstaiguData = {
@@ -12,6 +13,8 @@ function IstaiguInputForm() {
     address: "",
     pavadinimas: ""
   };
+
+  const currentUser = React.useContext(AuthContext);
 
   var savingStatus = false;
 
@@ -64,30 +67,15 @@ function IstaiguInputForm() {
   };
 
   return (
+    
     <div>
+            {currentUser.state.role === "ADMIN" ?
+                                  (  
       <form onSubmit={handleSubmit} onReset={resetForm}>
         <h6 className="py-3">
           <b>Pridėti naują maitinimo įstaigą </b>
         </h6>
-        <div className="mb-3">
-          <label htmlFor="id" className="form-label">
-            Įstaigos kodas <span className="fieldRequired">*</span>
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            name="id"
-            id="id"
-            value={data.id}
-            onChange={handleChange}
-            required
-            pattern="\d{9}"
-            placeholder="123456789"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Įveskite maitinimo įstaigos kodą (9 skaitmenys)"
-          />
-        </div>
+      
 
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
@@ -166,6 +154,10 @@ function IstaiguInputForm() {
           {savingStatus ? "Pridedama..." : "Pridėti"}
         </button>
       </form>
+               ) : (         
+                <div className="col-12 col-sm-12 col-md-12 col-lg-9 pt-1"> </div>
+       )
+           }
     </div>
   );
 }

@@ -102,6 +102,8 @@ public class MeniuController {
 		meniuService.createNewMeniu(meniu);
 
 	}
+	
+	
 //	@PostMapping("/admin/createIstaiga")
 //	@ApiOperation(value = "Create new maitinimo istaiga")
 //	public ResponseEntity<String> createNewIstaiga(

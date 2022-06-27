@@ -84,22 +84,22 @@ public class MaitinimoIstaigaController {
 	public ResponseEntity<String> createNewIstaiga(
 			@ApiParam(value = "Istaiga", required = true) @Valid @RequestBody MaitinimoIstaigaDTO istaiga) {
 
-		String id = istaiga.getId();
-
-		if (maitinimoIstaiga.findById(id) != null) {
-
-			LOG.warn("Kuriama maitinimo istaiga jau egzistuojančiu įstaigos kodu [{}]", id);
-
-			return new ResponseEntity<>("Maitinimo įstaiga su tokiu įstaigos kodu jau yra", HttpStatus.CONFLICT);
-
-		} else {
+//		String id = istaiga.getId();
+//
+//		if (maitinimoIstaiga.findById(id) != null) {
+//
+//			LOG.warn("Kuriama maitinimo istaiga jau egzistuojančiu įstaigos kodu [{}]", id);
+//
+//			return new ResponseEntity<>("Maitinimo įstaiga su tokiu įstaigos kodu jau yra", HttpStatus.CONFLICT);
+//
+//		} else {
 
 			maitinimoIstaiga.createNewIstaiga(istaiga);
 
 			LOG.info("**MaitinimoIstaigaController: kuriamas darzelis pavadinimu [{}] **", istaiga.getPavadinimas());
 
 			return new ResponseEntity<>("Maitinimo įstaiga sukurta sėkmingai", HttpStatus.OK);
-		}
+		//}
 
 	}
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import NotFoundMessage from '../08CommonComponents/NotFoundMessage';
-
+import AuthContext from "../11Context/AuthContext";
 import '../../App.css';
 class IstaiguListTable extends Component {
-
+    //static contextType = AuthContext
     render() {
         const {
             istaigos,
@@ -22,8 +22,9 @@ class IstaiguListTable extends Component {
                 <NotFoundMessage message="Maitinimo įstaigų pagal įvestą pavadinimą nerasta"/>
             )
         }else{
-        return (
-            <div className="table-responsive-md">
+        return ( 
+            <AuthContext.Consumer>{(authContext) =>
+                <div className="table-responsive-md">
 
                 <table className="table" >
 
@@ -32,16 +33,20 @@ class IstaiguListTable extends Component {
                             <th>Maitinimo įstaigos kodas</th>
                             <th>Adresas</th>
                             <th>Pavadinimas</th>
+                            {authContext.state.role === 'ADMIN' &&
+                                <th>Redaguoti duomenis</th>
+                            }
                             <th>Peržiūrėti meniu</th>
-                            <th>Redaguoti duomenis</th>
-                            <th className="deleteColumn">Ištrinti maitinimo įstaigą</th>
+                            {authContext.state.role === 'ADMIN' &&
+                                <th className="deleteColumn">Ištrinti maitinimo įstaigą</th>
+                            }
                         </tr>
                     </thead>
                     <tbody >
                         {
                             istaigos.map((istaiga) => (
                                 <tr key={istaiga.kodas}>
-                                    {inEditMode && editRowId === istaiga.id ?
+                                    {inEditMode && editRowId === istaiga.id  ?
                                         (
                                             <React.Fragment>
                                                 <td>
@@ -110,6 +115,7 @@ class IstaiguListTable extends Component {
                                                 <td>{istaiga.pavadinimas}</td>
                                                
                                                 
+                                                {authContext.state.role === 'ADMIN' &&
                                                 <td>
                                                     <button
                                                         className="btn btn-outline-primary btn-sm btn-block"
@@ -118,6 +124,7 @@ class IstaiguListTable extends Component {
                                                         Redaguoti
                                                     </button>
                                                 </td>
+                                                }
                                             </React.Fragment>
                                         )}
                                     <td>
@@ -126,16 +133,17 @@ class IstaiguListTable extends Component {
                                             id="btnViewMeniu"
                                             className="btn btn-outline-danger btn-sm btn-block">
                                             Peržiūrėti meniu
-                                            </button>
+                                        </button>
                                     </td>
+                                    {authContext.state.role === 'ADMIN' &&
                                     <td>
                                         <button
                                             onClick={() => onDelete(istaiga)}
                                             id="btnDeleteMeniu"
                                             className="btn btn-outline-danger btn-sm btn-block">
                                             Ištrinti
-                                            </button>
-                                    </td>
+                                        </button>
+                                    </td>}
                   
                                 </tr>
                             ))
@@ -143,7 +151,8 @@ class IstaiguListTable extends Component {
                     </tbody>
                 </table>
             </div>
-
+            }
+            </AuthContext.Consumer>
         );
     }
 }

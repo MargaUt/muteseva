@@ -70,24 +70,6 @@ function MealsInputForm() {
         <h6 className="py-3">
           <b>Pridėti naują patiekalą</b>
         </h6>
-        <div className="mb-3">
-          <label htmlFor="id" className="form-label">
-            Patiekalo kodas <span className="fieldRequired">*</span>
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            name="id"
-            id="id"
-            value={data.id}
-            onChange={handleChange}
-            required
-            placeholder="123456789"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Įveskite patiekalo kodą"
-          />
-        </div>
 
         <div className="mb-3">
           <label htmlFor="name" className="form-label">

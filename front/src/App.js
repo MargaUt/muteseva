@@ -11,7 +11,7 @@ import NotFound from "./components/03NotFound/NotFound";
 import Admin from "./components/04Admin/AdminContainer";
 import AdminNavBar from "./components/00Navigation/AdminNavBar";
 import UserNavBar from "./components/00Navigation/UserNavBar";
-
+import UserListContainer from "./components/04Admin/UserListContainer";
 import AuthContext from "./components/11Context/AuthContext";
 import http from "./components/10Services/httpService";
 import CommonErrorHandler from "./components/10Services/CommonErrorHandler";
@@ -94,117 +94,66 @@ function App() {
     if (state.isAuthenticated) {
         switch (state.role) {
             case "ADMIN":
-                return ( <
-                    AuthContext.Provider value = {
-                        { state, dispatch } } >
-                    <
-                    CommonErrorHandler >
-                    <
-                    div className = "container-fluid px-0" >
-                    <
-                    AdminNavBar >
-                    <
-                    Switch >
-                    <
-                    Route exact path = "/"
-                    component = { Admin }
-                    /> <
-                    Route exact path = "/home"
-                    component = { Admin }
-                    /> <
-                    Route exact path = "/admin"
-                    component = { Admin }
-                    /> <
-                    Route exact path = "/istaigos"
-                    component = { IstaiguContainer }
-                    /> <
-                    Route path = "/meniu/:id"
-                    component = { MeniuContainer }
-                    /> <
-                    Route path = "/meals/:id"
-                    component = { MealContainer }
-                    /> <
-                    Route path = "*"
-                    component = { NotFound }
-                    /> <
-                    /Switch> <
-                    /AdminNavBar> <
-                    /div> <
-                    /CommonErrorHandler> <
-                    /AuthContext.Provider>
+                return (<AuthContext.Provider value={{ state, dispatch }} >
+                    <CommonErrorHandler>
+                        <div className="container-fluid px-0" >
+                            <AdminNavBar>
+                                <Switch>
+                                    <Route exact path="/" component={Admin} />
+                                    <Route exact path="/home" component={Admin} />
+                                    <Route exact path="/admin" component={Admin} />
+                                    <Route exact path="/naudotojai" component={UserListContainer} />
+                                    <Route exact path="/istaigos" component={IstaiguContainer} />
+                                    <Route path="/meniu/:id" component={MeniuContainer} />
+                                    <Route path="/meals/:id" component={MealContainer} />
+                                    <Route path="*" component={NotFound} />
+                                </Switch>
+                            </AdminNavBar>
+                        </div>
+                    </CommonErrorHandler>
+                </AuthContext.Provider >
                 );
 
             case "USER":
-                return ( <
-                    AuthContext.Provider value = {
-                        { state, dispatch } } >
-                    <
-                    CommonErrorHandler >
-                    <
-                    div className = "container-fluid px-0" >
-                    <
-                    UserNavBar >
-                    <
-                    Switch >
-                    <
-                    Route exact path = "/"
-                    component = { UserHomeContainer }
-                    /> <
-                    Route exact path = "/home"
-                    component = { UserHomeContainer }
-                    /> <
-                    Route exact path = "/prasymai"
-                    component = { UserHomeContainer }
-                    /> <
-                    Route
-
-                    path = "/istaigos"
-                    component = { IstaiguContainer }
-                    /> <
-                    Route path = "*"
-                    component = { NotFound }
-                    /> <
-                    /Switch> <
-                    /UserNavBar> <
-                    /div> <
-                    /CommonErrorHandler> <
-                    /AuthContext.Provider>
+                return (<AuthContext.Provider value={
+                    { state, dispatch }
+                } >
+                    <CommonErrorHandler>
+                        <div className="container-fluid px-0" >
+                            <UserNavBar>
+                                <Switch>
+                                    <Route exact path="/" component={IstaiguContainer} />
+                                    <Route exact path="/home" component={IstaiguContainer} />
+                                    <Route path="/istaigos" component={IstaiguContainer} />
+                                    <Route path="/meniu/:id" component={MeniuContainer} />
+                                    <Route path="/meals/:id" component={MealContainer} />
+                                </Switch >
+                            </UserNavBar>
+                        </div >
+                    </CommonErrorHandler>
+                </AuthContext.Provider >
                 );
             default:
-                return ( <
-                    AuthContext.Provider value = {
-                        { state, dispatch } } >
-                    <
-                    div className = "container-fluid px-0" >
-                    <
-                    NotFound / >
-                    <
-                    /div> <
-                    /AuthContext.Provider>
+                return (<AuthContext.Provider value={{ state, dispatch }} >
+                    <div className="container-fluid px-0" >
+                        <NotFound />
+                    </div>
+                </AuthContext.Provider >
                 );
         }
     } else if (state.isAuthenticated === false) {
-        return ( <
-            div >
-            <
-            AuthContext.Provider value = {
-                { state, dispatch } } >
-            <
-            Switch >
-            <
-            Route exact path = "/login"
-            component = { Login }
-            /> <
-            Route path = "*" >
-            <
-            Redirect to = "/login" / >
-            <
-            /Route>  <
-            /Switch> <
-            /AuthContext.Provider> <
-            /div>
+        return (<div >
+            <AuthContext.Provider value={{ state, dispatch }} >
+                <Switch >
+                    <Route exact path="/login" component={Login} />
+                    <Route path="*" >
+                        <Redirect to="/login" />
+                    </Route>
+                </Switch >
+            </AuthContext.Provider>
+        </div >
         );
-    } else return <Spinner / > ;
+    } else return <Spinner />;
 }
 
 export default App;

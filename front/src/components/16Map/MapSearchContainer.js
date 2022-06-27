@@ -34,8 +34,10 @@ class MapSearchContainer extends Component {
 
     handleSearch = (e) => {
         const search = e.currentTarget.value;
-        this.setState({ searchQuery: search,
-            placeholder: "Ieškoti pagal darželio pavadinimą arba adresą..." });
+        this.setState({
+            searchQuery: search,
+            placeholder: "Ieškoti pagal darželio pavadinimą arba adresą..."
+        });
         this.getKindergartenInfo(1, search);
     }
 
@@ -66,7 +68,7 @@ class MapSearchContainer extends Component {
                         numberOfElements: response.data.numberOfElements,
                         currentPage: response.data.number + 1
                     });
-                }).catch(() => { });
+                }).catch(() => {});
 
         } else {
             this.setState({
@@ -104,34 +106,38 @@ class MapSearchContainer extends Component {
     render() {
         const { kindergartens, totalElements, pageSize, searchQuery } = this.state;
 
-        return (
-            <div className="container-flexible pt-2">
-                <React.Fragment>
+        return ( <
+            div className = "container-flexible pt-2" >
+            <
+            React.Fragment >
 
-                    <SearchBox
-                        value={searchQuery}
-                        onSearch={this.handleSearch}
-                        placeholder={this.state.placeholder}
-                    />
-                    <div className="d-grid pt-2">
-                        <button className="btn btn-outline-secondary" type="button" onClick={this.cleanSearch}>Išvalyti paiešką</button>
-                    </div>
+            <
+            SearchBox value = { searchQuery }
+            onSearch = { this.handleSearch }
+            placeholder = { this.state.placeholder }
+            /> <
+            div className = "d-grid pt-2" >
+            <
+            button className = "btn btn-outline-secondary"
+            type = "button"
+            onClick = { this.cleanSearch } > Išvalyti paiešką < /button> <
+            /div>
 
-                    <MapSearchDropdown
-                        kindergartens={kindergartens}
-                        chosenKindergarten={this.chosenKindergarten}
-                        search={searchQuery}
-                    />
-                    <div className=' mt-3'>
-                        <Pagination
-                            itemsCount={totalElements}
-                            pageSize={pageSize}
-                            onPageChange={this.handlePageChange}
-                            currentPage={this.state.currentPage}
-                        />
-                    </div>
-                </React.Fragment>
-            </div>
+            <
+            MapSearchDropdown kindergartens = { kindergartens }
+            chosenKindergarten = { this.chosenKindergarten }
+            search = { searchQuery }
+            /> <
+            div className = ' mt-3' >
+            <
+            Pagination itemsCount = { totalElements }
+            pageSize = { pageSize }
+            onPageChange = { this.handlePageChange }
+            currentPage = { this.state.currentPage }
+            /> <
+            /div> <
+            /React.Fragment> <
+            /div>
         )
     }
 }

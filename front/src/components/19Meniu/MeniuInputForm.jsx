@@ -70,25 +70,6 @@ function MeniuInputForm() {
           <b>Pridėti naują maitinimo įstaigą </b>
         </h6>
         <div className="mb-3">
-          <label htmlFor="id" className="form-label">
-            Meniu kodas <span className="fieldRequired">*</span>
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            name="id"
-            id="id"
-            value={data.id}
-            onChange={handleChange}
-            required
-            placeholder="123456789"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Įveskite meniu kodą"
-          />
-        </div>
-
-        <div className="mb-3">
           <label htmlFor="name" className="form-label">
           Meniu pavadinimas <span className="fieldRequired">*</span>
           </label>
