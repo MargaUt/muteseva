@@ -10,7 +10,7 @@
 
 ## Getting Started
 
-- Clone the repository `git clone https://github.com/MargaUt/Slytherin.git`
+- Clone the repository `git clone [https://github.com/MargaUt/Slytherin.git](https://github.com/MargaUt/muteseva.git)`
 
 ### Run on Tomcat Server
 
