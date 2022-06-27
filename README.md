@@ -1,15 +1,4 @@
-# Kindergarten information system
-
-Vocational school project designed for learning purposes. 
-Developed system registers and processes children's requests to the kindergarten. A child is allocated a place at a kindergarten or a place in a waiting list depending on pre-determined criteria.
-
-System user roles and their authorities:
-
-| ROLES | AUTHORITIES |
-| --- | --- |
-| ADMIN |  create user, delete user, reset user password, lock application queue editing for manager, review system logs, update own account |
-|MANAGER | create a kindergarten, update kindergarten, start/ stop application submission, deactivate users' applications before approval (if not locked by admin), process applications queue, confirm applications queue, update own account, view/ review all submitted compensation applications, view/ review all submitted pdf documents |
-| USER | submit an application for registration to kindergartens (if not locked by manager), submit a compensation applications, review submitted applications and their status, review submitted compensation applications, submit/ review pdf documents, delete application, get user data, update and delete own account |
+# Kaip naudotis programa
 
 #### Technologies used: 
 - React 17.0.2,  Boostrap 5.1.3
@@ -18,18 +7,6 @@ System user roles and their authorities:
 - H2 database
 - Apache Tomcat 9.0.58 server
 - Swagger-UI, Maven
-- Selenium 4.1.1
-- TestNG 
-
-#### Design previews:
-
-ADMIN pages: https://agn709575.invisionapp.com/console/share/VM26ELGVGT/550993621
-
-MANAGER pages: https://agn709575.invisionapp.com/console/share/JB26EZTCR9/550996106
-
-USER pages: https://agn709575.invisionapp.com/console/share/GB26F5SD2U/550996143
-
-<sub>*actual pages may differ to a degree from the initial designs<sub>
 
 ## Getting Started
 
