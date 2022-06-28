@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import it.akademija.meniu.Meniu;
+import it.akademija.book.Book;
 import it.akademija.uzsakymas.Uzsakymas;
 
 @Entity
@@ -35,7 +35,7 @@ public class Meal {
 
 	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.DETACH })
 	@JoinColumn(name = "meniu_id")
-	private Meniu meniu;
+	private Book book;
 
 	public Meal() {
 
@@ -44,12 +44,12 @@ public class Meal {
 	public Meal(
 			// String id,
 			@NotBlank(message = "Patiekalo pavadinimas privalomas") String name,
-			@NotBlank(message = "Aprašymas privalomas") String description, Meniu meniu) {
+			@NotBlank(message = "Aprašymas privalomas") String description, Book book) {
 		super();
 		// this.id = id;
 		this.name = name;
 		this.description = description;
-		this.meniu = meniu;
+		this.book = book;
 	}
 
 	public String getId() {
@@ -76,12 +76,12 @@ public class Meal {
 		this.description = description;
 	}
 
-	public Meniu getMeniu() {
-		return meniu;
+	public Book getMeniu() {
+		return book;
 	}
 
-	public void setMeniu(Meniu meniu) {
-		this.meniu = meniu;
+	public void setMeniu(Book book) {
+		this.book = book;
 	}
 
 	@Override

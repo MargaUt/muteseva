@@ -9,9 +9,13 @@ function MeniuInputForm() {
   const params = useParams(); 
 
   const initMeniuData = {
-    id: "",
-    meniuName: "",
-    istaigosid: params.id
+    id: params.id,
+    bookName: "",
+    booksPages: 0,
+    isbn: 0,
+    picture: "",
+    santrauka: "",
+    categoryid: params.id
   };
 
   var savingStatus = false;
@@ -25,21 +29,21 @@ function MeniuInputForm() {
     event.preventDefault();
     savingStatus = true;
     http
-      .post(`${apiEndpoint}/api/meniu`, data)
+      .post(`${apiEndpoint}/api/book`, data)
       .then((response) => {
         swal({
-          text: "Naujas meniu „" + data.meniuName + "“ pridėtas sėkmingai!",
+          text: "Naujas meniu „" + data.bookName + "“ pridėtas sėkmingai!",
           button: "Gerai",
         });
         resetForm(event);
-        history.push("/meniu/" + data.istaigosid);
+        history.push("/knyga/" + data.id);
         window.location.reload(); 
       })
       .catch((error) => {
         if (error.response.status === 409) {
           swal({
             text:
-              "Įvyko klaida įrašant naują meniu. " +
+              "Įvyko klaida įrašant naują knygą. " +
               error.response.data +
               "\n\nPatikrinkite duomenis ir bandykite dar kartą",
             button: "Gerai",
@@ -67,11 +71,69 @@ function MeniuInputForm() {
     <div>
       <form onSubmit={handleSubmit} onReset={resetForm}>
         <h6 className="py-3">
-          <b>Pridėti naują maitinimo įstaigą </b>
+          <b>Pridėti naują knygą </b>
         </h6>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
-          Meniu pavadinimas <span className="fieldRequired">*</span>
+          Knygos pavadinimas <span className="fieldRequired">*</span>
+          </label>
+          <input
+            type="text"
+            className="form-control "
+            name="bookName"
+            id="bookName"
+            value={data.bookName}
+            onChange={handleChange}
+            required
+            minLength="3"
+            placeholder="3-50 simbolių"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Įveskite knygos pavadinimą"
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+          Knygos santrauka <span className="fieldRequired">*</span>
+          </label>
+          <input
+            type="text"
+            className="form-control "
+            name="santrauka"
+            id="santrauka"
+            value={data.santrauka}
+            onChange={handleChange}
+            required
+            minLength="3"
+            placeholder="3-50 simbolių"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Įveskite knygos santrauką"
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+          Knygos puslapių skaičius <span className="fieldRequired">*</span>
+          </label>
+          <input
+            type="text"
+            className="form-control "
+            name="booksPages"
+            id="booksPages"
+            value={data.booksPages}
+            onChange={handleChange}
+            required
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Įveskite puslapių skaičius "
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+          Knygos ISBN kodas <span className="fieldRequired">*</span>
           </label>
           <input
             type="text"
@@ -82,12 +144,32 @@ function MeniuInputForm() {
             onChange={handleChange}
             required
             minLength="3"
-            placeholder="3-50 simbolių"
+            placeholder="13 simbolių"
             data-toggle="tooltip"
             data-placement="top"
-            title="Įveskite maitinimo įstaigos pavadinimą"
+            title="Įveskite knygos ISBN kodas"
           />
         </div>
+
+        {/* <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+          Knygos paveiksliukas<span className="fieldRequired">*</span>
+          </label>
+          <input
+            type="text"
+            className="form-control "
+            name="picture"
+            id="picture"
+            value={data.picture}
+            onChange={handleChange}
+            required
+            minLength="3"
+            placeholder="13 simbolių"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Įveskite mkny"
+          />
+        </div> */}
 
         <button
           type="reset"

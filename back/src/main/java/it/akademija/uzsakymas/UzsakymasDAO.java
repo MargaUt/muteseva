@@ -22,8 +22,8 @@ public interface UzsakymasDAO extends JpaRepository<Uzsakymas, String> {
 
 	void deleteByUsername(String username);
 
-	@Query("SELECT COUNT(p) FROM Uzsakymas c INNER JOIN c.meals p WHERE c.username = ?1")
-	Integer countMeals(String username);
+	@Query("SELECT COUNT(p) FROM Uzsakymas c INNER JOIN c.books p WHERE c.username = ?1")
+	Integer countBooks(String username);
 	
 //	@Query("SELECT SUM(p.kaina) FROM Cart c INNER JOIN c.produktai p WHERE c.username = ?1")
 //	Integer sumProductsPrice(String username);

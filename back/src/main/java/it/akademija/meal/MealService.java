@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.akademija.application.ApplicationDAO;
-import it.akademija.meniu.MeniuDAO;
-import it.akademija.meniu.MeniuDTO;
+import it.akademija.book.BookDAO;
+import it.akademija.book.BookDTO;
 
 @Service
 public class MealService {
@@ -26,7 +26,7 @@ public class MealService {
 	private MealDAO mealDao;
 	
 	@Autowired
-	private MeniuDAO meniuDao;
+	private BookDAO meniuDao;
 
 
 	@Autowired
@@ -43,7 +43,7 @@ public class MealService {
 	@Transactional(readOnly = true)
 	public List<MealDTO> getMealOfMeniu(String meniuId) {
 		var meniu = meniuDao.findById(meniuId).get();
-		return mealDao.findAllByMeniu(meniu).stream().map(MealDTO::from).collect(Collectors.toList());
+		return mealDao.findAllByBook(meniu).stream().map(MealDTO::from).collect(Collectors.toList());
 	}
 
 	/**
@@ -159,11 +159,11 @@ public class MealService {
 		this.mealDao = mealDao;
 	}
 
-	public MeniuDAO getMeniuDao() {
+	public BookDAO getMeniuDao() {
 		return meniuDao;
 	}
 
-	public void setMeniuDao(MeniuDAO meniuDao) {
+	public void setMeniuDao(BookDAO meniuDao) {
 		this.meniuDao = meniuDao;
 	}
 

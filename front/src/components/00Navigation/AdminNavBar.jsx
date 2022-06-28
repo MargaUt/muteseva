@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import logo from "../../images/logo.png";
 import '../../App.css';
 
 import LogoutContainer from './LogoutContainer';
@@ -11,6 +11,10 @@ function Navigation(props) {
             <nav className="navbar-expand-lg py-3 navbar bg-success">
 
                 <div className="container">
+
+                <NavLink className="navbar-brand" to={"/home"}>
+                        <img className="nav-img" src={logo} alt="logotipas" loading="lazy" />
+                    </NavLink>
 
                     <NavLink className="navbar-brand" to={"/home"}>
                     </NavLink>
@@ -26,7 +30,7 @@ function Navigation(props) {
                                 <NavLink style={{color: 'white', textDecoration: 'none'}}  className="nav-link" id="navAdminUserList" to={"/admin"}>Naudotojai</NavLink>
                             </li>
                             <li className="nav-item me-2">
-                                <NavLink style={{color: 'white', textDecoration: 'none'}}  className="nav-link" id="navAdminIstaguList" to={"/istaigos"}>Maitinimo Įstaigos</NavLink>
+                                <NavLink style={{color: 'white', textDecoration: 'none'}}  className="nav-link" id="navAdminIstaguList" to={"/kategorijos"}>Knygų kategorijos</NavLink>
                             </li>
 
 

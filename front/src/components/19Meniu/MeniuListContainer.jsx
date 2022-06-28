@@ -12,7 +12,7 @@ export class MeniuListContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            menius: [],
+            books: [],
             inEditMode: false,
             editRowId: "",
             editedMeniu: null,
@@ -41,13 +41,12 @@ export class MeniuListContainer extends Component {
 
     getMeniuInfo() {
         var id = this.props.match.params.id
-        console.log("meniusssss", this.props.match)
-        var uri = `${apiEndpoint}/api/meniu/` + id;
+        var uri = `${apiEndpoint}/api/book/getBook/` + id;
         http
             .get(uri)
             .then((response) => {
                 this.setState({
-                    menius: response.data,
+                    books: response.data,
                 });
 
             }).catch(() => {});
@@ -57,7 +56,7 @@ export class MeniuListContainer extends Component {
     handleDelete = (item) => {
 
         swal({
-            text: "Ar tikrai norite ištrinti meniu?",
+            text: "Ar tikrai norite ištrinti knygą?",
             buttons: ["Ne", "Taip"],
             dangerMode: true,
         }).then((actionConfirmed) => {
@@ -77,12 +76,12 @@ export class MeniuListContainer extends Component {
         });
     }
 
-    handleView = (item) => {
-        const id = item.id;
-        this.props.history.push("/meals/" + id);
+//     handleView = (item) => {
+//         const id = item.id;
+//         this.props.history.push("/uzsakymai/" + id);
         
        
-}
+// }
 
     handleEditIstaiga = (item) => {
 
@@ -125,7 +124,7 @@ export class MeniuListContainer extends Component {
      
 
         if (Object.keys(errorMessages).length === 0) {
-            http.put(`${apiEndpoint}/api/meniu/admin/updateMeniu/${editRowId}`, editedMeniu)
+            http.put(`${apiEndpoint}/api/book/updateBook/${editRowId}`, editedMeniu)
                 .then(() => {
                     this.onCancel();
                 }).catch(error => {
@@ -145,8 +144,7 @@ export class MeniuListContainer extends Component {
 
     render() {
 
-        const { menius, inEditMode, editRowId, errorMessages } = this.state;
-        console.log("meniu", menius)
+        const { books, inEditMode, editRowId, errorMessages } = this.state;
 
         const hasErrors = Object.keys(errorMessages).length === 0 ? false : true;
 
@@ -154,7 +152,7 @@ export class MeniuListContainer extends Component {
             <React.Fragment>
 
                 <MeniuListTable
-                    menius={menius}
+                    books={books}
                     inEditMode={inEditMode}
                     editRowId={editRowId}
                     errorMessages={errorMessages}

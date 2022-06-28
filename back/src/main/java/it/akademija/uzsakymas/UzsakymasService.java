@@ -9,15 +9,13 @@ import javax.validation.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.akademija.maitinimoIstaiga.MaitinimoIstaigaDAO;
-import it.akademija.meal.Meal;
+import it.akademija.book.Book;
+import it.akademija.book.BookDAO;
+import it.akademija.book.BookDTO;
 import it.akademija.meal.MealDAO;
-import it.akademija.meal.MealDTO;
 
 @Service
 public class UzsakymasService {
@@ -27,7 +25,7 @@ public class UzsakymasService {
 	@Autowired
 	private UzsakymasDAO uzsakymasDAO;
 	@Autowired
-	private MealDAO mealDao;
+	private BookDAO bookDAO;
 
 //	/**
 //	 *
@@ -58,7 +56,7 @@ public class UzsakymasService {
 //	
 	@Transactional(readOnly = true)
 	public List<UzsakymasDTO> findAllUzsakymai() {
-		return uzsakymasDAO.findAll().stream().map(uzsakyamasIsDb -> new UzsakymasDTO(uzsakyamasIsDb.getUsername(), uzsakyamasIsDb.getMeals().stream().map(MealDTO::from).collect(Collectors.toSet())))
+		return uzsakymasDAO.findAll().stream().map(uzsakyamasIsDb -> new UzsakymasDTO(uzsakyamasIsDb.getUsername(), uzsakyamasIsDb.getBooks().stream().map(BookDTO::from).collect(Collectors.toSet())))
 				.collect(Collectors.toList());
 	}
 
@@ -73,7 +71,7 @@ public class UzsakymasService {
 
 	@Transactional(readOnly = true)
 	public Integer countUzsakymus(String username) {
-		return uzsakymasDAO.countMeals(username);
+		return uzsakymasDAO.countBooks(username);
 	}
 
 //
@@ -109,14 +107,14 @@ public class UzsakymasService {
 		if (uzsakymas == null) {
 			throw new ValidationException("Neradom Užsakymo");
 		}
-		if (uzsakymas.getMeals() == null) {
-			uzsakymas.setMeals(new HashSet<Meal>());
+		if (uzsakymas.getBooks() == null) {
+			uzsakymas.setBooks(new HashSet<Book>());
 		}
-		var meal = mealDao.findById(patiekaloId).get();
-		if (meal == null) {
-			throw new ValidationException("Neradom patiekalo");
+		var book = bookDAO.findById(patiekaloId).get();
+		if (book == null) {
+			throw new ValidationException("Neradom knygos");
 		}
-		uzsakymas.getMeals().add(meal);
+		uzsakymas.getBooks().add(book);
 		uzsakymasDAO.save(uzsakymas);
 
 	}
@@ -127,15 +125,15 @@ public class UzsakymasService {
 		if (uzsakymas == null) {
 			throw new ValidationException("Neradom užsakymo");
 		}
-		if (uzsakymas.getMeals() == null) {
+		if (uzsakymas.getBooks() == null) {
 			return;
 		}
-		var meal = uzsakymas.getMeals().stream().filter(p -> p.getName().equals(pavadinimas)).findFirst()
+		var meal = uzsakymas.getBooks().stream().filter(p -> p.getBookName().equals(pavadinimas)).findFirst()
 				.orElse(null);
 		if (meal == null) {
 			return;
 		} else {
-			uzsakymas.getMeals().remove(meal);
+			uzsakymas.getBooks().remove(meal);
 			uzsakymasDAO.save(uzsakymas);
 		}
 
@@ -261,12 +259,13 @@ public class UzsakymasService {
 		this.uzsakymasDAO = uzsakymasDAO;
 	}
 
-	public MealDAO getMealDao() {
-		return mealDao;
+
+	public BookDAO getBookDAO() {
+		return bookDAO;
 	}
 
-	public void setMealDao(MealDAO mealDao) {
-		this.mealDao = mealDao;
+	public void setBookDAO(BookDAO bookDAO) {
+		this.bookDAO = bookDAO;
 	}
 
 }

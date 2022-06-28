@@ -3,6 +3,7 @@ package it.akademija.uzsakymas;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import it.akademija.book.BookDTO;
 import it.akademija.meal.Meal;
 import it.akademija.meal.MealDTO;
 
@@ -10,16 +11,16 @@ public class UzsakymasDTO {
 
 	private String username;
 
-	private Set<MealDTO> meals;
+	private Set<BookDTO> books;
 
 	public UzsakymasDTO() {
 
 	}
 
-	public UzsakymasDTO(String username, Set<MealDTO> meals) {
+	public UzsakymasDTO(String username, Set<BookDTO> books) {
 		super();
 		this.username = username;
-		this.meals = meals;
+		this.books = books;
 	}
 	
 	public UzsakymasDTO(String username) {
@@ -29,8 +30,8 @@ public class UzsakymasDTO {
 
 	public UzsakymasDTO(Uzsakymas uzsakymas) {
 		super();
-		if (uzsakymas.getMeals() != null) {
-			this.meals = uzsakymas.getMeals().stream().map(MealDTO::from).collect(Collectors.toSet());
+		if (uzsakymas.getBooks() != null) {
+			this.books = uzsakymas.getBooks().stream().map(BookDTO::from).collect(Collectors.toSet());
 		}
 		this.username = uzsakymas.getUsername();
 
@@ -70,12 +71,14 @@ public class UzsakymasDTO {
 		this.username = username;
 	}
 
-	public Set<MealDTO> getMeals() {
-		return meals;
+	public Set<BookDTO> getBooks() {
+		return books;
 	}
 
-	public void setMeals(Set<MealDTO> meals) {
-		this.meals = meals;
+	public void setBooks(Set<BookDTO> books) {
+		this.books = books;
 	}
+
+
 
 }

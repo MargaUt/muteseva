@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import logo from "../../images/logo.png";
 import '../../App.css';
 
 
@@ -15,6 +15,9 @@ function Navigation(props) {
               {/* Renamed .ml-* and .mr-* to .ms-* and .me-*. */}
                 <div className="container">
 
+                <NavLink className="navbar-brand" to={"/home"}>
+                        <img className="nav-img" src={logo} alt="logotipas" loading="lazy" />
+                    </NavLink>
                     <NavLink className="navbar-brand" to={"/home"}>
                     </NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +27,7 @@ function Navigation(props) {
                         <ul className="navbar-nav ms-auto ">
 
                         <li className="nav-item me-1">
-                                <NavLink style={{color: 'white', textDecoration: 'none'}} className="nav-link" id="navAdminIstaguList" to={"/istaigos"}>Maitinimo Įstaigos</NavLink>
+                                <NavLink style={{color: 'white', textDecoration: 'none'}} className="nav-link" id="navAdminIstaguList" to={"/kategorijos"}>Knygų kategorijos</NavLink>
                             </li>
 
                             <li className="nav-item nav-item me-2">

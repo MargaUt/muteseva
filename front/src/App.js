@@ -103,8 +103,8 @@ function App() {
                                     <Route exact path="/home" component={Admin} />
                                     <Route exact path="/admin" component={Admin} />
                                     <Route exact path="/naudotojai" component={UserListContainer} />
-                                    <Route exact path="/istaigos" component={IstaiguContainer} />
-                                    <Route path="/meniu/:id" component={MeniuContainer} />
+                                    <Route path="/kategorijos" component={IstaiguContainer} />
+                                    <Route path="/knyga/:id" component={MeniuContainer} />
                                     <Route path="/meals/:id" component={MealContainer} />
                                     <Route path="*" component={NotFound} />
                                 </Switch>
@@ -124,8 +124,8 @@ function App() {
                                 <Switch>
                                     <Route exact path="/" component={IstaiguContainer} />
                                     <Route exact path="/home" component={IstaiguContainer} />
-                                    <Route path="/istaigos" component={IstaiguContainer} />
-                                    <Route path="/meniu/:id" component={MeniuContainer} />
+                                    <Route path="/kategorijos" component={IstaiguContainer} />
+                                    <Route path="/knyga/:id" component={MeniuContainer} />
                                     <Route path="/meals/:id" component={MealContainer} />
                                 </Switch >
                             </UserNavBar>

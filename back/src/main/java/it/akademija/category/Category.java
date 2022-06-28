@@ -1,4 +1,4 @@
-package it.akademija.uzsakymas;
+package it.akademija.category;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,61 +8,48 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import it.akademija.book.Book;
-import it.akademija.meal.Meal;
 
 @Entity
-public class Uzsakymas {
+public class Category {
 
 	@Id
-	@Column(name = "uzsakymo_id")
+	@Column(name = "categorijos_id")
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
 	private String id;
 
-	@Column(unique = true)
-	private String username;
+	@Column(name = "name", unique = true)
+	@NotBlank(message = "Knygų kategorijos pavadinimas privalomas")
+	private String name;
 
-	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.DETACH })
+	@OneToMany(mappedBy = "bookCategory", cascade = CascadeType.ALL)
 	private Set<Book> books = new HashSet<>();
 
-	public void addBook(Book book) {
-		this.books.add(book);
-	}
-
-	public Uzsakymas() {
+	public Category() {
 
 	}
-
-	public Uzsakymas(String username, Set<Book> books) {
+	
+	public Category(@NotBlank(message = "Knygų kategorijos pavadinimas privalomas") String name) {
 		super();
-		this.username = username;
-		this.books = books;
-	}
-
-	public Uzsakymas(String username) {
-		super();
-		this.username = username;
+		this.name = name;
 	}
 
 	public String getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public String getName() {
+		return name;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Set<Book> getBooks() {
@@ -87,7 +74,7 @@ public class Uzsakymas {
 			return true;
 		if ((obj == null) || (getClass() != obj.getClass()))
 			return false;
-		Uzsakymas other = (Uzsakymas) obj;
+		Category other = (Category) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

@@ -6,7 +6,7 @@ import "../../App.css";
 
 import apiEndpoint from "../10Services/endpoint";
 import AuthContext from "../11Context/AuthContext";
-//import logo from "../../images/logo.png";
+import book from "../../images/book.png";
 import swal from "sweetalert";
 
 import ForgotPasswordWindow from "../01Login/ForgotPasswordWindow";
@@ -122,11 +122,11 @@ export const LoginContainer = () => {
       {/* Dropped form-specific layout classes for our grid system. Use our grid and utilities instead 
       of .form-group, .form-row, or .form-inline. */}
           {/* Form labels now require .form-label. */}
-        {/* <img
-          src={logo}
-          alt="Sistema"
+          <img
+          src={book}
+          alt="Knygų rezervacijos sistema"
           className="img-flex mb-3"
-        /> */}
+        />
         <form onSubmit={handleSubmit}>
           <h3>Prisijungti</h3>
           <div className="m-3">
@@ -167,17 +167,7 @@ export const LoginContainer = () => {
             />
           </div>
 
-          <button
-            type="button"
-            className="btn btn-link"
-            style={{ paddingLeft: "0px" }}
-            onClick={() => {
-              return ForgotPasswordWindow();
-            }}
-            formNoValidate
-          >
-            Sukurti paskyrą
-          </button>
+
         {/* Renamed .float-left and .float-right to .float-start and .float-end. */}
           <button
             type="submit"

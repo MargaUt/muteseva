@@ -8,8 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import it.akademija.maitinimoIstaiga.MaitinimoIstaiga;
-import it.akademija.meniu.Meniu;
+import it.akademija.book.Book;
+import it.akademija.category.Category;
 
 public interface MealDAO extends JpaRepository<Meal, String> {
 
@@ -23,6 +23,6 @@ public interface MealDAO extends JpaRepository<Meal, String> {
 	@Query("SELECT k FROM Meal k")
 	Page<Meal> findAllIstaigas(Pageable pageable);
 	
-	List<Meal> findAllByMeniu( Meniu meniu);
+	List<Meal> findAllByBook( Book book);
 
 }

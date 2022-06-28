@@ -12,11 +12,10 @@ import SearchBox from '../08CommonComponents/SeachBox';
 export class IstaiguListContainer extends Component {
 
 
-
     constructor(props, context) {
         super(props, context);
         this.state = {
-            istaigos: [],
+            kategorijos: [],
             pageSize: 10,
             currentPage: 1,
             totalPages: 0,
@@ -57,11 +56,11 @@ export class IstaiguListContainer extends Component {
 
         if (page < 0 ) page = 0;
 
-        var uri = `${apiEndpoint}/api/istaigos/user/page?page=${page}&size=${pageSize}`;
+        var uri = `${apiEndpoint}/api/category/getCategorypage?page=${page}&size=${pageSize}`;
 
         if (pavadinimas !== "") {
             let encodedName = encodeURIComponent(pavadinimas);
-            uri = `${apiEndpoint}/api/istaigos/user/page?page=${page}&search=${encodedName}&size=${pageSize}`;
+            uri = `${apiEndpoint}/api/category/getCategorypage?page=${page}&search=${encodedName}&size=${pageSize}`;
 
         }
 
@@ -70,7 +69,7 @@ export class IstaiguListContainer extends Component {
             .then((response) => {
 
                 this.setState({
-                    istaigos: response.data.content,
+                    kategorijos: response.data.content,
                     totalPages: response.data.totalPages,
                     totalElements: response.data.totalElements,
                     numberOfElements: response.data.numberOfElements,
@@ -90,7 +89,7 @@ export class IstaiguListContainer extends Component {
     handleDelete = (item) => {
 
         swal({
-            text: "Ar tikrai norite ištrinti maitinimo įstaigą?",
+            text: "Ar tikrai norite ištrinti kategoriją?",
             buttons: ["Ne", "Taip"],
             dangerMode: true,
         }).then((actionConfirmed) => {
@@ -99,7 +98,7 @@ export class IstaiguListContainer extends Component {
                 const { currentPage, numberOfElements } = this.state;
                 const page = numberOfElements === 1 ? (currentPage - 1) : currentPage;
                 http
-                    .delete(`${apiEndpoint}/api/istaigos/admin/delete/${id}`)
+                    .delete(`${apiEndpoint}/api/category/deleteCategory/${id}`)
                     .then((response) => {
                         swal({
                             text: response.data,
@@ -119,7 +118,7 @@ export class IstaiguListContainer extends Component {
     handleView = (item) => {
             const id = item.id
             ;
-            this.props.history.push("/meniu/" + id);
+            this.props.history.push("/knyga/" + id);
             
            
     }
@@ -165,7 +164,7 @@ export class IstaiguListContainer extends Component {
      
 
         if (Object.keys(errorMessages).length === 0) {
-            http.put(`${apiEndpoint}/api/istaigos/admin/update/${editRowId}`, editedIstaga)
+            http.put(`${apiEndpoint}/api/category/updateCategory/${editRowId}`, editedIstaga)
                 .then(() => {
                     this.onCancel();
                     this.getIstaigosInfo(this.state.currentPage, this.state.searchQuery);
@@ -193,7 +192,7 @@ export class IstaiguListContainer extends Component {
 
         const placeholder = "Ieškoti pagal pavadinimą...";
 
-        const { istaigos, totalElements, pageSize, searchQuery, inEditMode, editRowId, errorMessages, currentUser } = this.state;
+        const { kategorijos, totalElements, pageSize, searchQuery, inEditMode, editRowId, errorMessages, currentUser } = this.state;
 
         const hasErrors = Object.keys(errorMessages).length === 0 ? false : true;
 
@@ -207,7 +206,7 @@ export class IstaiguListContainer extends Component {
                 />
 
                 <IstaiguListTable
-                    istaigos={istaigos}
+                    kategorijos={kategorijos}
                     inEditMode={inEditMode}
                     editRowId={editRowId}
                     errorMessages={errorMessages}

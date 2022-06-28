@@ -6,7 +6,7 @@ class IstaiguListTable extends Component {
     //static contextType = AuthContext
     render() {
         const {
-            istaigos,
+            kategorijos,
             inEditMode,
             editRowId,
             errorMessages,
@@ -17,9 +17,9 @@ class IstaiguListTable extends Component {
             onView, 
             onDelete,
             search } = this.props;
-        if (search !=="" && istaigos.length === 0) {
+        if (search !=="" && kategorijos.length === 0) {
             return (
-                <NotFoundMessage message="Maitinimo įstaigų pagal įvestą pavadinimą nerasta"/>
+                <NotFoundMessage message="Kategorijų įstaigų pagal įvestą pavadinimą nerasta"/>
             )
         }else{
         return ( 
@@ -30,13 +30,11 @@ class IstaiguListTable extends Component {
 
                     <thead className="no-top-border">
                         <tr >
-                            <th>Maitinimo įstaigos kodas</th>
-                            <th>Adresas</th>
-                            <th>Pavadinimas</th>
+                            <th>Knygų kategorijos pavadinimas</th>
                             {authContext.state.role === 'ADMIN' &&
                                 <th>Redaguoti duomenis</th>
                             }
-                            <th>Peržiūrėti meniu</th>
+                            <th>Peržiūrėti knygas</th>
                             {authContext.state.role === 'ADMIN' &&
                                 <th className="deleteColumn">Ištrinti maitinimo įstaigą</th>
                             }
@@ -44,48 +42,20 @@ class IstaiguListTable extends Component {
                     </thead>
                     <tbody >
                         {
-                            istaigos.map((istaiga) => (
-                                <tr key={istaiga.kodas}>
-                                    {inEditMode && editRowId === istaiga.id  ?
+                            kategorijos.map((ketegorija) => (
+                                <tr key={ketegorija.kodas}>
+                                    {inEditMode && editRowId === ketegorija.id  ?
                                         (
                                             <React.Fragment>
-                                                <td>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="txtIstaigosKodas"
-                                                        name="kodas"
-                                                        value={istaiga.kodas}
-                                                        onChange={(event) => onChange(event)}
-                                                        placeholder="Maitinmo Įstaigos kodas"
-                                                        title="Kodas privalomas"
-                                                        required
-                                                    />
-                                                    {errorMessages.kodas && <div className="text-danger">{errorMessages.kodas}</div>}
-                                                </td>
-                                                <td>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        id="txtIstaigaAddress"
-                                                        name="address"
-                                                        value={istaiga.address}
-                                                        onChange={(event) => onChange(event)}
-                                                        placeholder="Adresas"
-                                                        title="Adresas privalomas"
-                                                        required
-                                                        pattern="[^\n]{3,50}"
-                                                    />
-                                                    {errorMessages.address && <div className="text-danger">{errorMessages.address}</div>}
-                                                </td>
-                                       
+                                             
+                                            
                                                 <td >
                                                     <input
                                                         type="text"
                                                         className="form-control"
                                                         id="txtIstaigatenName"
                                                         name="pavadinimas"
-                                                        value={istaiga.pavadinimas}
+                                                        value={ketegorija.pavadinimas}
                                                         onChange={(event) => onChange(event)}
                                                         placeholder="Pavadinimas"
                                                         title="Pavadinimas turi būti 3-50 simbolių ir negali prasidėti tarpu"
@@ -102,7 +72,7 @@ class IstaiguListTable extends Component {
                                                         type="submit"
                                                         className="btn btn-primary btn-sm btn-block"
                                                         id="btnSaveUpdatedKindergarten"
-                                                        onClick={() => onSave({ id: istaiga.id, item: istaiga })}
+                                                        onClick={() => onSave({ id: ketegorija.id, item: ketegorija })}
                                                         disabled={hasErrors}>
                                                         Saugoti
                                                         </button>
@@ -110,9 +80,7 @@ class IstaiguListTable extends Component {
                                             </React.Fragment>
                                         ) : (
                                             <React.Fragment>
-                                                <td>{istaiga.kodas}</td>
-                                                <td>{istaiga.address}</td>
-                                                <td>{istaiga.pavadinimas}</td>
+                                                <td>{ketegorija.name}</td>
                                                
                                                 
                                                 {authContext.state.role === 'ADMIN' &&
@@ -120,7 +88,7 @@ class IstaiguListTable extends Component {
                                                     <button
                                                         className="btn btn-outline-primary btn-sm btn-block"
                                                         id="btnUpdateMeniu"
-                                                        onClick={() => onEditData(istaiga)}>
+                                                        onClick={() => onEditData(ketegorija)}>
                                                         Redaguoti
                                                     </button>
                                                 </td>
@@ -129,7 +97,7 @@ class IstaiguListTable extends Component {
                                         )}
                                     <td>
                                         <button
-                                            onClick={() => onView(istaiga)}
+                                            onClick={() => onView(ketegorija)}
                                             id="btnViewMeniu"
                                             className="btn btn-outline-danger btn-sm btn-block">
                                             Peržiūrėti meniu
@@ -138,7 +106,7 @@ class IstaiguListTable extends Component {
                                     {authContext.state.role === 'ADMIN' &&
                                     <td>
                                         <button
-                                            onClick={() => onDelete(istaiga)}
+                                            onClick={() => onDelete(ketegorija)}
                                             id="btnDeleteMeniu"
                                             className="btn btn-outline-danger btn-sm btn-block">
                                             Ištrinti

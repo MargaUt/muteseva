@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 
 	<name>aplikacija</name>
-	<description>Maisto užsakymo iš maitinimo įstaigos aplikacija</description>
+	<description>Knygų rezervacijos aplikacija</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
